@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.box-button {
+  margin: 30px 0;
+}
+.btn {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.donate {
+  background-color: #EB7153;
+}
+.withdraw {
+  background-color: #F32424;
+}
+.connect-wallet {
+  background-color: #1B4F93;
+}
+.notice-donante {
+  margin-top: 20px;
+  color: #36AE7C;
+}
