@@ -9,4 +9,8 @@ contract Faucets {
     require(msg.value >= 0.00000001 ether);
     players.push(msg.sender); 
   }
+
+  function getAllPlayerAddress() view public returns (address[] memory name) {
+    return players;
+  }
 }

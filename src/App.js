@@ -14,6 +14,8 @@ function App() {
   const [account, setAccount] = useState('')
 
   const [balanceWallet, setBalanceWallet] = useState(null)
+
+  const [funders, setFunders] = useState()
   
   useEffect(() => {
     const loadProvider = async () => {
@@ -72,6 +74,15 @@ function App() {
   }, [web3API, account])
 
   
+  useEffect(() => {
+    const { contract, web3 } = web3API
+    const loadAddFunds = async () => {
+      const funders = await contract.methods.getAllPlayerAddress().call()
+      setFunders(funders)
+    }
+    loadAddFunds()
+  }, [web3API.web3, account])
+  
 
   return (
     <div className="App">
@@ -86,6 +97,13 @@ function App() {
       </div>
       <div>
         Account address: <b>{ account ?? 'Access denined' }</b>
+      </div>
+      <div style={{ marginTop: '20px'}}>List donated:
+        <ul>
+          {
+            funders && funders.length > 0 && funders.map(item => (<li>{ item }</li>))
+          }
+        </ul>
       </div>
     </div>
   );
